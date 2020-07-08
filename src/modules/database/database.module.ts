@@ -11,10 +11,7 @@ const typeOrmConfig = <TypeOrmModuleOptions>{ ...databaseConfig, entities };
 
 @Global()
 @Module({
-  imports: [
-    TypeOrmModule.forRoot(typeOrmConfig),
-    TypeOrmModule.forFeature(entities),
-  ],
+  imports: [TypeOrmModule.forRoot(typeOrmConfig), TypeOrmModule.forFeature(entities)],
   exports: [TypeOrmModule],
   controllers: [],
   providers: [],

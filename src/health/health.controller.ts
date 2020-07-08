@@ -17,10 +17,7 @@ export class HealthController {
 
       await connection.query('SELECT 1 = 1 AS result;');
     } catch {
-      throw new HttpException(
-        'Database is not healthy.',
-        HttpStatus.INTERNAL_SERVER_ERROR,
-      );
+      throw new HttpException('Database is not healthy.', HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     return 'Database OK';

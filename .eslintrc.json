@@ -23,6 +23,8 @@
     "comma-dangle": ["warn", "always-multiline"],
     "space-before-function-paren": "off",
     "no-use-before-define": "off",
+    "indent": ["warn", 2],
+    "max-len": ["warn", 100],
     "@typescript-eslint/semi": ["error", "always"],
     "@typescript-eslint/indent": ["warn", 2],
     "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always", "allowUnderscorePrefix": true }],

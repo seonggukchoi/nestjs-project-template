@@ -23,4 +23,12 @@ module.exports = {
       migrationsDir: 'migrations',
     },
   },
+  logger: {
+    level: 'verbose',
+    transports: ['console'],
+    httpTransportOptions: {
+      host: 'localhost',
+      port: 10000,
+    },
+  },
 };

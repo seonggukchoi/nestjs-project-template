@@ -6,10 +6,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "api": "nest start --watch",
-    "api:dev": "./node_modules/pm2/bin/pm2-runtime ./pm2/api.development.config.js",
-    "api:stage": "./node_modules/pm2/bin/pm2-runtime ./pm2/api.staging.config.js",
-    "api:prod": "./node_modules/pm2/bin/pm2-runtime ./pm2/api.production.config.js",
+    "start": "nest start --watch",
+    "start:dev": "./node_modules/pm2/bin/pm2-runtime ./pm2/application.development.config.js",
     "prebuild": "rimraf dist",
     "build": "nest build",
     "test": "jest",

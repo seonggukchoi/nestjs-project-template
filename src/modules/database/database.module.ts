@@ -1,19 +1,24 @@
-import { Module, Global } from '@nestjs/common';
-import { TypeOrmModule, TypeOrmModuleOptions } from '@nestjs/typeorm';
-import { Entity } from 'typeorm';
-import * as config from 'config';
+import { Module, DynamicModule } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import {
+  initializeTransactionalContext,
+  patchTypeORMRepositoryWithBaseRepository,
+} from 'typeorm-transactional-cls-hooked';
 
-import * as Entities from './entities';
+import { TypeORMConfigService } from './typeorm-config.service';
 
-const entities: typeof Entity[] = Object.values(Entities);
-const databaseConfig = config.get<TypeOrmModuleOptions>('database');
-const typeOrmConfig = <TypeOrmModuleOptions>{ ...databaseConfig, entities };
-
-@Global()
 @Module({
-  imports: [TypeOrmModule.forRoot(typeOrmConfig), TypeOrmModule.forFeature(entities)],
+  imports: [TypeOrmModule.forRootAsync({ useClass: TypeORMConfigService })],
   exports: [TypeOrmModule],
-  controllers: [],
   providers: [],
 })
-export class DatabaseModule {}
+export class DatabaseModule {
+  public static forRoot(): DynamicModule {
+    initializeTransactionalContext();
+    patchTypeORMRepositoryWithBaseRepository();
+
+    return {
+      module: DatabaseModule,
+    };
+  }
+}

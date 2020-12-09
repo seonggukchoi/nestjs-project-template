@@ -11,10 +11,12 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "./dist/",
-    "baseUrl": "./src/",
+    "baseUrl": "./",
     "incremental": true,
     "paths": {
-      "@/*": ["./*"]
+      "@app/modules/*": ["./src/modules/*"],
+      "@app/api/*": ["./src/api/*"],
+      "@app/graphql/*": ["./src/graphql/*"]
     }
   },
   "exclude": ["./node_modules/", "./dist/"]

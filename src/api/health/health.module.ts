@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 
-import { DatabaseModule } from '@/modules/database';
-import { LoggerModule } from '@/modules/logger';
+import { DatabaseModule } from '@app/modules/database';
+import { LoggerModule } from '@app/modules/logger';
 
 import { HealthController } from './health.controller';
 

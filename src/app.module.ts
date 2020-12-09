@@ -1,8 +1,8 @@
 import { Module } from '@nestjs/common';
 
-import { HealthModule } from './api/health';
+import { GraphQLModule } from '@app/modules/graphql';
 
-import { GraphQLModule } from '@/modules/graphql';
+import { HealthModule } from '@app/api/health';
 
 @Module({
   imports: [HealthModule, GraphQLModule],

@@ -1,7 +1,7 @@
 import { Controller, HttpException, HttpStatus, Get } from '@nestjs/common';
 import { getConnection } from 'typeorm';
 
-import { LoggerService } from '@/modules/logger';
+import { LoggerService } from '@app/modules/logger';
 
 @Controller({
   path: '/health',

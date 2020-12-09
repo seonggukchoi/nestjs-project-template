@@ -4,6 +4,11 @@ module.exports = {
   application: {
     port: 10000,
     cors: true,
+    graphql: {
+      path: '/graphql',
+      debug: true,
+      playground: true,
+    }
   },
   database: {
     type: 'mysql',

@@ -27,12 +27,22 @@
     "max-len": ["warn", 120],
     "@typescript-eslint/semi": ["error", "always"],
     "@typescript-eslint/indent": ["warn", 2],
-    "@typescript-eslint/interface-name-prefix": ["error", { "prefixWithI": "always", "allowUnderscorePrefix": true }],
     "@typescript-eslint/no-empty-interface": ["off"],
     "@typescript-eslint/consistent-type-assertions": ["error", { "assertionStyle": "angle-bracket" }],
     "@typescript-eslint/explicit-function-return-type": ["warn"],
     "@typescript-eslint/no-unused-vars": ["off"],
-    "@typescript-eslint/camelcase": ["warn", {"properties": "always", "genericType": "always" }],
+    "@typescript-eslint/naming-convention": ["warn", {
+      "selector": "interface",
+      "format": ["PascalCase"],
+      "prefix": ["I"]
+    }, {
+      "selector": ["typeAlias", "enum"],
+      "format": ["PascalCase"],
+      "suffix": ["Type"]
+    }, {
+      "selector": "variable",
+      "format": ["camelCase", "UPPER_CASE"]
+    }],
     "@typescript-eslint/space-before-function-paren": ["error", {
       "anonymous": "never",
       "named": "never",

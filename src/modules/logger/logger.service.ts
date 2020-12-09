@@ -1,6 +1,6 @@
 import { Injectable, LoggerService as ILoggerService } from '@nestjs/common';
 import * as Winston from 'winston';
-import * as chalk from 'chalk';
+import chalk from 'chalk';
 
 import { WinstonFactory } from './winston/winston.factory';
 

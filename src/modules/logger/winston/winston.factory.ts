@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import * as Winston from 'winston';
-import * as config from 'config';
+import config from 'config';
 
 import { WinstonTransportFactory } from './winston-transport.factory';
 import { LoggerTransportType } from '../logger.interface';

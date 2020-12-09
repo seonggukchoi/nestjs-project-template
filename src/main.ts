@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import * as config from 'config';
+import config from 'config';
 
 import { AppModule } from './app.module';
 import { LoggerService } from './modules/logger';

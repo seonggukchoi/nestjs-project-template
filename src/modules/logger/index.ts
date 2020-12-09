@@ -1,2 +1,2 @@
-export { LoggerModule } from './logger.module';
-export { LoggerService } from './logger.service';
+export * from './logger.module';
+export * from './logger.service';

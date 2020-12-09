@@ -12,37 +12,37 @@ export class LoggerService implements ILoggerService {
     this.logger = this.winstonFactory.createWinstonLogger();
   }
 
-  public info(message: string, context?: string, metadata?: any): void {
+  public info(message: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.info(coloredMessage, metadata);
   }
 
-  public error(message: string, trace?: string, context?: string, metadata?: any): void {
+  public error(message: string, trace?: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.error(coloredMessage, { trace, ...metadata });
   }
 
-  public warn(message: string, context?: string, metadata?: any): void {
+  public warn(message: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.warn(coloredMessage, metadata);
   }
 
-  public debug(message: string, context?: string, metadata?: any): void {
+  public debug(message: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.debug(coloredMessage, metadata);
   }
 
-  public log(message: string, context?: string, metadata?: any): void {
+  public log(message: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.verbose(coloredMessage, metadata);
   }
 
-  public verbose(message: string, context?: string, metadata?: any): void {
+  public verbose(message: string, context?: string, metadata?: Record<string, unknown>): void {
     const coloredMessage = this.chalkMessage(message, context);
 
     this.logger.verbose(coloredMessage, metadata);

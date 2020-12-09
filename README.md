@@ -2,18 +2,16 @@
 
 ## Scripts
 
-### Run API as Watch Mode
+### Run Application Server as Watch Mode
 
 ```bash
-npm run api
+npm run start
 ```
 
-### Run API on Server
+### Run Application Server on Server
 
 ```bash
-npm run api:dev
-npm run api:stage
-npm run api:prod
+npm run start:dev
 ```
 
 ### Build
@@ -31,7 +29,7 @@ npm run test:coverage
 npm run test:debug
 ```
 
-### Styling Code
+### Code Styling
 
 ```bash
 npm run lint

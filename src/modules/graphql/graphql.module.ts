@@ -2,8 +2,6 @@ import { Module } from '@nestjs/common';
 import { GraphQLModule as NestGraphQLModule } from '@nestjs/graphql';
 import config from 'config';
 
-import { HealthResolver } from './health.resolver';
-
 @Module({
   imports: [
     NestGraphQLModule.forRoot({
@@ -15,6 +13,6 @@ import { HealthResolver } from './health.resolver';
     }),
   ],
   exports: [NestGraphQLModule],
-  providers: [HealthResolver],
+  providers: [],
 })
 export class GraphQLModule {}

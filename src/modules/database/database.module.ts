@@ -1,4 +1,4 @@
-import { Module, DynamicModule } from '@nestjs/common';
+import { Module, DynamicModule, Global } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {
   initializeTransactionalContext,
@@ -7,6 +7,7 @@ import {
 
 import { TypeORMConfigService } from './typeorm-config.service';
 
+@Global()
 @Module({
   imports: [TypeOrmModule.forRootAsync({ useClass: TypeORMConfigService })],
   exports: [TypeOrmModule],

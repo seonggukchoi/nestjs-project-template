@@ -29,7 +29,7 @@ export class WinstonFactory {
     return logger;
   }
 
-  public addTransports(logger: Winston.Logger): void {
+  private addTransports(logger: Winston.Logger): void {
     const transports = config.get<LoggerTransportType[]>('logger.transports');
 
     if (transports.includes('console')) {

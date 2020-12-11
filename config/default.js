@@ -8,7 +8,9 @@ module.exports = {
       path: '/graphql',
       debug: true,
       playground: true,
-    }
+    },
+    useNativeLogger: true,
+    useCustomLogger: true,
   },
   database: {
     type: 'mysql',

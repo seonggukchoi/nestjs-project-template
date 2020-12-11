@@ -8,9 +8,15 @@ async function bootstrap(): Promise<void> {
   const applicationPort = config.get<number>('application.port');
   const cors = config.get<boolean>('application.cors');
 
-  const app = await NestFactory.create(AppModule, { cors, logger: false });
+  const useNativeLogger = config.get<boolean>('application.useNativeLogger');
 
-  app.useLogger(app.get(LoggerService));
+  const app = await NestFactory.create(AppModule, { cors, logger: useNativeLogger });
+
+  const useCustomLogger = config.get<boolean>('application.useCustomLogger');
+
+  if (useCustomLogger) {
+    app.useLogger(app.get(LoggerService));
+  }
 
   await app.listen(applicationPort);
 }

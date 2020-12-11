@@ -1,17 +1,26 @@
 import { Controller, HttpException, HttpStatus, Get } from '@nestjs/common';
-import { getConnection } from 'typeorm';
 
 import { LoggerService } from '@app/modules/logger';
+import { HealthService as CommonHealthService } from '@app/common/health';
 
 @Controller({
   path: '/health',
 })
 export class HealthController {
-  constructor(private readonly loggerService: LoggerService) {}
+  constructor(
+    private readonly loggerService: LoggerService,
+    private readonly commonHealthService: CommonHealthService,
+  ) {}
 
   @Get('/')
   public getHealth(): string {
     this.loggerService.debug('Checked an API status through API.', 'HealthController');
+
+    const isHealthy = this.commonHealthService.isHealthy();
+
+    if (!isHealthy) {
+      throw new HttpException('API is not healthy.', HttpStatus.INTERNAL_SERVER_ERROR);
+    }
 
     return 'API OK';
   }
@@ -20,11 +29,9 @@ export class HealthController {
   public async getDatabaseHealth(): Promise<string> {
     this.loggerService.debug('Checked a database status through API.', 'HealthController');
 
-    try {
-      const connection = getConnection();
+    const isDatabaseHealth = await this.commonHealthService.isDatabaseHealthy();
 
-      await connection.query('SELECT 1 = 1 AS result;');
-    } catch {
+    if (!isDatabaseHealth) {
       throw new HttpException('Database is not healthy.', HttpStatus.INTERNAL_SERVER_ERROR);
     }
 

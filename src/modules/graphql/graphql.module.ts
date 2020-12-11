@@ -1,17 +1,10 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule as NestGraphQLModule } from '@nestjs/graphql';
-import config from 'config';
+
+import { GraphQLConfigService } from './graphql-config.service';
 
 @Module({
-  imports: [
-    NestGraphQLModule.forRoot({
-      cors: config.get<string>('application.cors'),
-      debug: config.get<boolean>('application.graphql.debug'),
-      playground: config.get<boolean>('application.graphql.playground'),
-      path: config.get<string>('application.graphql.path'),
-      autoSchemaFile: true,
-    }),
-  ],
+  imports: [NestGraphQLModule.forRootAsync({ useClass: GraphQLConfigService })],
   exports: [NestGraphQLModule],
   providers: [],
 })

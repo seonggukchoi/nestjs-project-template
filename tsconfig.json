@@ -15,6 +15,7 @@
     "incremental": true,
     "paths": {
       "@app/modules/*": ["./src/modules/*"],
+      "@app/common/*": ["./src/common/*"],
       "@app/api/*": ["./src/api/*"],
       "@app/graphql/*": ["./src/graphql/*"]
     }

@@ -16,6 +16,7 @@
     "paths": {
       "@app/modules/*": ["./src/modules/*"],
       "@app/common/*": ["./src/common/*"],
+      "@app/business/*": ["./src/business/*"],
       "@app/models/*": ["./src/models/*"],
       "@app/api/*": ["./src/api/*"],
       "@app/graphql/*": ["./src/graphql/*"]

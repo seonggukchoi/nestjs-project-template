@@ -32,6 +32,7 @@
     "@typescript-eslint/consistent-type-assertions": ["error", { "assertionStyle": "angle-bracket" }],
     "@typescript-eslint/explicit-function-return-type": ["warn"],
     "@typescript-eslint/no-unused-vars": ["off"],
+    "@typescript-eslint/no-inferrable-types": ["off"],
     "@typescript-eslint/naming-convention": ["warn", {
       "selector": "interface",
       "format": ["PascalCase"],

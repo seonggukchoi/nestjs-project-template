@@ -1,7 +1,7 @@
 import { Controller, HttpException, HttpStatus, Get } from '@nestjs/common';
 
 import { LoggerService } from '@app/modules/logger';
-import { HealthService as CommonHealthService } from '@app/common/health';
+import { CommonHealthService } from '@app/common/health';
 
 @Controller({
   path: '/health',

@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 
-import { HealthModule as CommonHealthModule } from '@app/common/health';
+import { CommonHealthModule } from '@app/common/health';
 
 import { HealthResolver } from './health.resolver';
 
@@ -9,4 +9,4 @@ import { HealthResolver } from './health.resolver';
   exports: [],
   providers: [HealthResolver],
 })
-export class HealthModule {}
+export class HealthGraphQLModule {}

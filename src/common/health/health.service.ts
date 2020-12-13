@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { getConnection } from 'typeorm';
 
 @Injectable()
-export class HealthService {
+export class CommonHealthService {
   public isHealthy(): boolean {
     return true;
   }

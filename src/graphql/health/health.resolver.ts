@@ -1,21 +1,21 @@
 import { Resolver, Query } from '@nestjs/graphql';
 
-import { HealthService } from '@app/common/health';
+import { CommonHealthService } from '@app/common/health';
 
 @Resolver()
 export class HealthResolver {
-  constructor(private readonly healthService: HealthService) {}
+  constructor(private readonly commonHealthService: CommonHealthService) {}
 
   @Query((returns) => Boolean)
   public health(): boolean {
-    const isHealth = this.healthService.isHealthy();
+    const isHealth = this.commonHealthService.isHealthy();
 
     return isHealth;
   }
 
   @Query((returns) => Boolean)
   public async databaseHealth(): Promise<boolean> {
-    const isDatabaseHealthy = await this.healthService.isDatabaseHealthy();
+    const isDatabaseHealthy = await this.commonHealthService.isDatabaseHealthy();
 
     return isDatabaseHealthy;
   }

@@ -4,9 +4,9 @@ import { DatabaseModule } from '@app/modules/database';
 import { GraphQLModule } from '@app/modules/graphql';
 import { LoggerModule } from '@app/modules/logger';
 
-import { HealthModule } from '@app/api/health';
+import { HealthAPIModule } from '@app/api/health';
 
-import { HealthModule as HealthGraphQLModule } from '@app/graphql/health';
+import { HealthGraphQLModule } from '@app/graphql/health';
 
 @Module({
   imports: [
@@ -16,7 +16,7 @@ import { HealthModule as HealthGraphQLModule } from '@app/graphql/health';
     LoggerModule,
 
     /* API Modules */
-    HealthModule,
+    HealthAPIModule,
 
     /* GraphQL Modules */
     HealthGraphQLModule,

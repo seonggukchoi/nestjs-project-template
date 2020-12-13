@@ -11,7 +11,10 @@ async function bootstrap(): Promise<void> {
 
   const useNativeLogger = config.get<boolean>('application.useNativeLogger');
 
-  const app = await NestFactory.create(AppModule, { cors, logger: useNativeLogger });
+  const app = await NestFactory.create(AppModule, {
+    cors,
+    logger: useNativeLogger,
+  });
 
   const useCustomLogger = config.get<boolean>('application.useCustomLogger');
 

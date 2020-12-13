@@ -7,9 +7,15 @@ import {
 
 import { TypeORMConfigService } from './typeorm-config.service';
 
+import * as Entities from './entities';
+import * as Repositories from './repositories';
+
 @Global()
 @Module({
-  imports: [TypeOrmModule.forRootAsync({ useClass: TypeORMConfigService })],
+  imports: [
+    TypeOrmModule.forRootAsync({ useClass: TypeORMConfigService }),
+    TypeOrmModule.forFeature([...Object.values(Entities), ...Object.values(Repositories)]),
+  ],
   exports: [TypeOrmModule],
   providers: [],
 })

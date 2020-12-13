@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { BaseEntity } from '@app/models/bsae.entity';
+import { BaseEntity } from './base.entity';
 
 @Entity({ name: 'test' })
 export class TestEntity extends BaseEntity {

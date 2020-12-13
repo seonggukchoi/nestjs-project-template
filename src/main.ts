@@ -1,9 +1,10 @@
-import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
+import { ValidationPipe } from '@nestjs/common';
 import config from 'config';
 
-import { AppModule } from './app.module';
 import { LoggerService } from './modules/logger';
+
+import { AppModule } from './app.module';
 
 async function bootstrap(): Promise<void> {
   const applicationPort = config.get<number>('application.port');

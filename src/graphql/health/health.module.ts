@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 
-import { CommonHealthModule } from '@app/common/health';
+import { BusinessHealthModule } from '@app/business/health';
 
 import { HealthResolver } from './health.resolver';
 
 @Module({
-  imports: [CommonHealthModule],
+  imports: [BusinessHealthModule],
   exports: [],
   providers: [HealthResolver],
 })

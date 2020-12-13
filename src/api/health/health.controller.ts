@@ -1,7 +1,7 @@
 import { Controller, HttpException, HttpStatus, Get } from '@nestjs/common';
 
 import { LoggerService } from '@app/modules/logger';
-import { CommonHealthService } from '@app/common/health';
+import { BusinessHealthService } from '@app/business/health';
 
 @Controller({
   path: '/health',
@@ -9,14 +9,14 @@ import { CommonHealthService } from '@app/common/health';
 export class HealthController {
   constructor(
     private readonly loggerService: LoggerService,
-    private readonly commonHealthService: CommonHealthService,
+    private readonly businessHealthService: BusinessHealthService,
   ) {}
 
   @Get('/')
   public getHealth(): string {
     this.loggerService.debug('Checked an API status through API.', 'HealthController');
 
-    const isHealthy = this.commonHealthService.isHealthy();
+    const isHealthy = this.businessHealthService.isHealthy();
 
     if (!isHealthy) {
       throw new HttpException('API is not healthy.', HttpStatus.INTERNAL_SERVER_ERROR);
@@ -29,7 +29,7 @@ export class HealthController {
   public async getDatabaseHealth(): Promise<string> {
     this.loggerService.debug('Checked a database status through API.', 'HealthController');
 
-    const isDatabaseHealth = await this.commonHealthService.isDatabaseHealthy();
+    const isDatabaseHealth = await this.businessHealthService.isDatabaseHealthy();
 
     if (!isDatabaseHealth) {
       throw new HttpException('Database is not healthy.', HttpStatus.INTERNAL_SERVER_ERROR);

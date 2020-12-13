@@ -12,6 +12,14 @@ module.exports = {
     useNativeLogger: true,
     useCustomLogger: true,
   },
+  logger: {
+    level: 'verbose',
+    transports: ['console'],
+    httpTransportOptions: {
+      host: 'localhost',
+      port: 10000,
+    },
+  },
   database: {
     type: 'mysql',
     host: 'localhost',
@@ -30,12 +38,8 @@ module.exports = {
       migrationsDir: 'migrations',
     },
   },
-  logger: {
-    level: 'verbose',
-    transports: ['console'],
-    httpTransportOptions: {
-      host: 'localhost',
-      port: 10000,
-    },
-  },
+  redis: {
+    host: 'localhost',
+    port: 6379,
+  }
 };

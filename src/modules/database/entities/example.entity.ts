@@ -1,11 +1,9 @@
 import { Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-import { ITestModel } from '@app/models/data-models';
-
 import { BaseEntity } from './base.entity';
 
-@Entity({ name: 'test' })
-export class TestEntity extends BaseEntity implements ITestModel {
+@Entity({ name: 'example' })
+export class ExampleEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   public id!: number;
 }

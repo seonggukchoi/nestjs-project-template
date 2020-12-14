@@ -11,7 +11,7 @@ import { HealthGraphQLModule } from '@app/graphql/health';
 @Module({
   imports: [
     /* Global Modules */
-    DatabaseModule,
+    DatabaseModule.forRoot(),
     GraphQLModule,
     LoggerModule,
 

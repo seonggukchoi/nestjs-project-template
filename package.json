@@ -22,7 +22,6 @@
   },
   "dependencies": {
     "@nestjs/common": "^7.5.5",
-    "@nestjs/config": "^0.6.1",
     "@nestjs/core": "^7.5.5",
     "@nestjs/graphql": "^7.9.1",
     "@nestjs/platform-express": "^7.5.5",
@@ -32,6 +31,7 @@
     "class-transformer": "^0.3.1",
     "class-validator": "^0.12.2",
     "config": "^3.3.3",
+    "dotenv": "^8.2.0",
     "graphql": "^15.4.0",
     "graphql-tools": "^7.0.2",
     "ioredis": "^4.19.2",

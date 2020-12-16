@@ -15,6 +15,7 @@
     "incremental": true,
     "paths": {
       "@app/modules/*": ["./src/modules/*"],
+      "@app/utils/*": ["./src/utils/*"],
       "@app/common/*": ["./src/common/*"],
       "@app/business/*": ["./src/business/*"],
       "@app/models/*": ["./src/models/*"],

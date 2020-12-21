@@ -3,7 +3,11 @@ import { Injectable } from '@nestjs/common';
 import { ExampleEntity } from '@app/entities';
 
 import { ExampleRepository } from './example.repository';
-import { IExampleInstanceModel, IExampleInstanceInputModel } from './data-models';
+import {
+  IExampleInstanceModel,
+  ICreateExampleInstanceInputModel,
+  IUpdateExampleInstanceInputModel,
+} from './data-models';
 
 @Injectable()
 export class CommonExampleService {
@@ -16,10 +20,9 @@ export class CommonExampleService {
     return exampleModel;
   }
 
-  public async createExample(exampleInput: IExampleInstanceInputModel): Promise<IExampleInstanceModel> {
+  public async createExample(exampleInput: ICreateExampleInstanceInputModel): Promise<IExampleInstanceModel> {
     let exampleInstance = this.exampleRepository.create();
-
-    exampleInstance.data = exampleInput.data;
+    exampleInstance = { ...exampleInstance, ...exampleInput };
 
     exampleInstance = await this.exampleRepository.save(exampleInstance);
 
@@ -30,11 +33,10 @@ export class CommonExampleService {
 
   public async updateExample(
     exampleId: number,
-    exampleInput: IExampleInstanceInputModel,
+    exampleInput: IUpdateExampleInstanceInputModel,
   ): Promise<IExampleInstanceModel> {
     let exampleInstance = await this.exampleRepository.getExampleById(exampleId);
-
-    exampleInstance.data = exampleInput.data;
+    exampleInstance = { ...exampleInstance, ...exampleInput };
 
     exampleInstance = await this.exampleRepository.save(exampleInstance);
 

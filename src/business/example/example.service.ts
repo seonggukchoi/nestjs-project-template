@@ -1,6 +1,11 @@
 import { Injectable } from '@nestjs/common';
 
-import { CommonExampleService, IExampleInstanceModel, IExampleInstanceInputModel } from '@app/common/example';
+import {
+  CommonExampleService,
+  IExampleInstanceModel,
+  ICreateExampleInstanceInputModel,
+  IUpdateExampleInstanceInputModel,
+} from '@app/common/example';
 
 import { ExampleObjectType, ExampleInputType } from './transport-models';
 
@@ -16,7 +21,7 @@ export class BusinessExampleService {
   }
 
   public async createExample(exampleInput: ExampleInputType): Promise<ExampleObjectType> {
-    const exampleInputModel = this.convertInputToInputModel(exampleInput);
+    const exampleInputModel = this.convertInputToCreateInputModel(exampleInput);
     const exampleModel = await this.commonExampleService.createExample(exampleInputModel);
     const exampleObject = this.convertModelToObject(exampleModel);
 
@@ -24,7 +29,7 @@ export class BusinessExampleService {
   }
 
   public async updateExample(exampleId: number, exampleInput: ExampleInputType): Promise<ExampleObjectType> {
-    const exampleInputModel = this.convertInputToInputModel(exampleInput);
+    const exampleInputModel = this.convertInputToUpdateInputModel(exampleInput);
     const exampleModel = await this.commonExampleService.updateExample(exampleId, exampleInputModel);
     const exampleObject = this.convertModelToObject(exampleModel);
 
@@ -48,8 +53,16 @@ export class BusinessExampleService {
     return object;
   }
 
-  private convertInputToInputModel(input: ExampleInputType): IExampleInstanceInputModel {
-    const inputModel: IExampleInstanceInputModel = {
+  private convertInputToCreateInputModel(input: ExampleInputType): ICreateExampleInstanceInputModel {
+    const inputModel: ICreateExampleInstanceInputModel = {
+      data: input.data,
+    };
+
+    return inputModel;
+  }
+
+  private convertInputToUpdateInputModel(input: ExampleInputType): IUpdateExampleInstanceInputModel {
+    const inputModel: IUpdateExampleInstanceInputModel = {
       data: input.data,
     };
 

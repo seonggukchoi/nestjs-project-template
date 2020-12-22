@@ -1,6 +1,8 @@
 import { Controller, Get, Post, Patch, Delete, Param, ParseIntPipe, Body } from '@nestjs/common';
 
-import { BusinessExampleService, ExampleObjectType, ExampleInputType } from '@app/business/example';
+import { BusinessExampleService } from '@app/business/example';
+
+import { ExampleObjectType, ExampleInputType } from './types';
 
 @Controller('/examples')
 export class ExampleController {

@@ -1,6 +1,8 @@
 import { Resolver, Query, Mutation, Args, Int } from '@nestjs/graphql';
 
-import { BusinessExampleService, ExampleObjectType, ExampleInputType } from '@app/business/example';
+import { BusinessExampleService } from '@app/business/example';
+
+import { ExampleObjectType, ExampleInputType } from './types';
 
 @Resolver()
 export class ExampleResolver {
